@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -18,13 +19,23 @@ class PrecoActivity : AppCompatActivity() {
 
         val valor = intent.getFloatExtra("123", 0f)
 
-        val edtvalor = findViewById<TextInputEditText>(R.id.edt_valor)
+        val edtValor = findViewById<TextInputEditText>(R.id.edt_valor)
         val button = findViewById<Button>(R.id.btn_next)
 
         button.setOnClickListener {
-            val intent = Intent(this, ConsumoActivity::class.java)
-            intent.putExtra("123", valor)
-            startActivity(intent)
+
+            val valorstr: String = edtValor.text.toString()
+
+            if (valorstr == "") {
+                Snackbar.make(edtValor, "Preencha o campo vazio", Snackbar.LENGTH_LONG).show()
+
+            } else {
+                val valor = valorstr.toFloat()
+
+                val intent = Intent(this, ConsumoActivity::class.java)
+                intent.putExtra("123", valor)
+                startActivity(intent)
+            }
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -22,9 +23,19 @@ class quilometroActivity : AppCompatActivity() {
         val button3 = findViewById<Button>(R.id.btn_result)
 
         button3.setOnClickListener {
-            val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra("123", quilometro)
-            startActivity(intent)
+
+            val quilometrostr: String = edtquilometro.text.toString()
+
+            if (quilometrostr == "") {
+                Snackbar.make(edtquilometro, "Preencha o campo vazio", Snackbar.LENGTH_LONG).show()
+
+            } else {
+                val quilometro = quilometrostr.toFloat()
+
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra("123", quilometro)
+                startActivity(intent)
+            }
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
