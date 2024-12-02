@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -22,9 +23,19 @@ class ConsumoActivity : AppCompatActivity() {
         val button2 = findViewById<Button>(R.id.btn_next2)
 
         button2.setOnClickListener {
-            val intent = Intent(this, quilometroActivity::class.java)
-            intent.putExtra("123", consumo)
-            startActivity(intent)
+
+            val consumostr: String = edtconsumo.text.toString()
+
+            if (consumostr == "") {
+                Snackbar.make(edtconsumo, "Preencha o campo vazio", Snackbar.LENGTH_LONG).show()
+
+            } else {
+                val consumo = consumostr.toFloat()
+
+                val intent = Intent(this, quilometroActivity::class.java)
+                intent.putExtra("123", consumo)
+                startActivity(intent)
+            }
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
