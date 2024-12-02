@@ -7,21 +7,25 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
-class MainActivity : AppCompatActivity() {
+class ConsumoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_consumo)
 
-        val btniniciar = findViewById<Button>(R.id.btn_start)
+        val consumo = intent.getFloatExtra("123", 0f)
 
-        btniniciar.setOnClickListener {
-            val intent = Intent(this, PrecoActivity::class.java)
-            intent.putExtra("123", "")
+        val edtconsumo = findViewById<TextInputEditText>(R.id.edt_consumo)
+        val button2 = findViewById<Button>(R.id.btn_next2)
+
+        button2.setOnClickListener {
+            val intent = Intent(this, quilometroActivity::class.java)
+            intent.putExtra("123", consumo)
             startActivity(intent)
         }
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
