@@ -46,7 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Ex: 2 km"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:inputType="numberDecimal"/>
 
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -17,7 +17,7 @@ class ConsumoActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_consumo)
 
-        val consumo = intent.getFloatExtra("123", 0f)
+        val consumo = intent.getFloatExtra("KEY_FUEL", 0f)
 
         val edtconsumo = findViewById<TextInputEditText>(R.id.edt_consumo)
         val button2 = findViewById<Button>(R.id.btn_next2)
@@ -33,7 +33,7 @@ class ConsumoActivity : AppCompatActivity() {
                 val consumo = consumostr.toFloat()
 
                 val intent = Intent(this, quilometroActivity::class.java)
-                intent.putExtra("123", consumo)
+                intent.putExtra("KEY_FUEL", consumo)
                 startActivity(intent)
             }
         }

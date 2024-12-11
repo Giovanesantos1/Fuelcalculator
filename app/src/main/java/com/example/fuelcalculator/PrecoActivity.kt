@@ -17,7 +17,7 @@ class PrecoActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_preco)
 
-        val valor = intent.getFloatExtra("123", 0f)
+        val valor = intent.getFloatExtra("KEY_FUEL", 0f)
 
         val edtValor = findViewById<TextInputEditText>(R.id.edt_valor)
         val button = findViewById<Button>(R.id.btn_next)
@@ -33,7 +33,7 @@ class PrecoActivity : AppCompatActivity() {
                 val valor = valorstr.toFloat()
 
                 val intent = Intent(this, ConsumoActivity::class.java)
-                intent.putExtra("123", valor)
+                intent.putExtra("KEY_FUEL", valor)
                 startActivity(intent)
             }
         }
