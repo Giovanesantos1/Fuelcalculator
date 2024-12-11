@@ -17,7 +17,7 @@ class quilometroActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_quilometro)
 
-        val quilometro = intent.getFloatExtra("123", 0f)
+        val quilometro = intent.getFloatExtra("KEY_FUEL", 0f)
 
         val edtquilometro = findViewById<TextInputEditText>(R.id.edt_km)
         val button3 = findViewById<Button>(R.id.btn_result)
@@ -30,10 +30,17 @@ class quilometroActivity : AppCompatActivity() {
                 Snackbar.make(edtquilometro, "Preencha o campo vazio", Snackbar.LENGTH_LONG).show()
 
             } else {
-                val quilometro = quilometrostr.toFloat()
+
+                val valor = intent.getFloatExtra("KEY_FUEL", 0f)
+                val consumo = intent.getFloatExtra("KEY_FUEL", 0f)
+                val quilometro = intent.getFloatExtra("KEY_FUEL", 0f)
+
+                val conta = consumo * quilometro / 100
+                val result = conta * valor
 
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("123", quilometro)
+                intent.putExtra("KEY_FUEL", quilometro)
+                intent.putExtra("KEY_FUEL", result)
                 startActivity(intent)
             }
         }

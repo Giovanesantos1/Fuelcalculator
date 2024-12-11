@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         btniniciar.setOnClickListener {
             val intent = Intent(this, PrecoActivity::class.java)
-            intent.putExtra("123", "")
             startActivity(intent)
         }
 

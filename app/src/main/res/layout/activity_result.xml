@@ -21,6 +21,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="64sp"
+        tools:text="20,00"
+        android:maxLength="5"
+        app:layout_constraintBottom_toTopOf="@+id/tv_descrição"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
         android:id="@+id/tv_descrição"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,37 +45,70 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <TextView
-        android:id="@+id/tv_resul_preço"
+        android:id="@+id/tv_preco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:layout_marginStart="64dp"
+        android:layout_marginEnd="132dp"
         android:text="Preço:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_descrição" />
 
     <TextView
-        android:id="@+id/tv_resul_consumo"
+        android:id="@+id/tv_resul_preço"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1.7"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_preco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_preco"
+        app:layout_constraintTop_toTopOf="@+id/tv_preco" />
+
+    <TextView
+        android:id="@+id/tv_consumo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginStart="64dp"
+        android:layout_marginEnd="132dp"
         android:text="Consumo:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_resul_preço" />
 
     <TextView
-        android:id="@+id/tv_resul_km"
+        android:id="@+id/tv_resul_consumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="5.0"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_consumo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_consumo"
+        app:layout_constraintTop_toTopOf="@+id/tv_consumo" />
+
+    <TextView
+        android:id="@+id/tv_km"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginStart="64dp"
+        android:layout_marginEnd="132dp"
         android:text="Km:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_resul_consumo" />
+
+    <TextView
+        android:id="@+id/tv_resul_km"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="15.0"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_km"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_km"
+        app:layout_constraintTop_toTopOf="@+id/tv_km" />
 
     <Button
         android:id="@+id/btn_reset"
